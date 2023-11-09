@@ -1,0 +1,44 @@
+{% extends "container.html" %}
+
+{% block corps %}
+    {% if amende %}
+        {% if updated %}
+            <div class="alert alert-success">
+                <p>Modification réussie. Merci pour votre contribution.</p>
+            </div>
+        {% endif %}
+        <h1 class="text-center">Mise à jour des données de la fiche d'amende</h1>
+        <form method="POST" action="{{ url_for('amende_update', identifiant=amende.identifiant) }}">
+            {% for champ, label in [('cote', 'Identifiant unique de la source dont est tirée l\'amende'),
+                                   ('date', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('typeTaxe', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('sexe', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('montant', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('parisis', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('moment', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('typeDelit', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('reunion', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('franchesVerites', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('tiers', 'Montant de l\'amende (en sous parisis par défaut)'),
+                                   ('id_personne', 'Type de l\'amende')] %}
+                <div class="mb-3">
+                    <label for="{{ champ }}" class="form-label"><b>{{ label }}:</b></label>
+                    <input type="text" name="{{ champ }}" class="form-control {% if champ in erreurs %}is-invalid{% endif %}" id="{{ champ }}" value="{{ amende[champ] }}" />
+                </div>
+            {% endfor %}
+            <div class="mb-3">
+                <label for="transcription" class="form-label"><b>Amende attribuée à l'issue d'une franche vérité:</b></label>
+                <textarea name="transcription" class="form-control {% if 'transcription' in erreurs %}is-invalid{% endif %}" id="transcription">{{ amende.transcription }}</textarea>
+            </div>
+            <p class="text-center">
+                <input type="submit" name="Modifier" class="btn btn-info" />
+                <a href="{{ url_for('index_amendes') }}" class="btn btn-danger text-light">Annuler</a>
+            </p>
+        </form>
+    {% else %}
+        <p>La base de données est en cours de constitution</p>
+    {% endif %}
+    <p class="text-center">
+        <a href="{{ url_for('accueil') }}" class="btn btn-dark text-light">Retour à l'accueil.</a>
+    </p>
+{% endblock %}

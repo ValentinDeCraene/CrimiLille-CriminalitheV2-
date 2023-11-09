@@ -1,0 +1,58 @@
+{% extends "container.html" %}
+
+{% block afternav %}
+<style>
+    .custom-jumbotron {
+        background-color: #f2f2f2; /* Couleur grise */
+        border-radius: 0 0 50% 50%;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.8); /* Couleur du texte */
+        padding: 100px 0;
+    }
+
+    .custom-jumbotron h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+
+    .custom-jumbotron p {
+        font-size: 1.2em;
+    }
+
+    .custom-column {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+</style>
+<div class="jumbotron custom-jumbotron">
+    <div class="container">
+        <h1 class="display-4">Bienvenue sur notre site</h1>
+        <p class="lead">Découvrez tout ce que nous avons à offrir. Découvrez tout ce que nous avons à offrir. Découvrez tout ce que nous avons à offrir. Découvrez tout ce que nous avons à offrir. Découvrez tout ce que nous avons à offrir. Découvrez tout ce que nous avons à offrir. Découvrez tout ce que nous avons à offrir. Découvrez tout ce que nous avons à offrir. Découvrez tout ce que nous avons à offrir.</p>
+    </div>
+</div>
+
+<div class="container pt-5 mt-3 pb-5 mb-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto custom-column">
+            <h2>Colonne 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis nisl vel commodo feugiat. Integer efficitur massa in ultrices lacinia. Sed euismod nisl vel orci lacinia, et condimentum nisl tincidunt. Proin non bibendum metus, vitae laoreet odio. Maecenas vitae justo auctor, iaculis odio eu, viverra quam. Sed vitae mi venenatis, tincidunt odio eu, aliquet orci.</p>
+        </div>
+        <div class="col-md-6 mx-auto custom-column">
+            <h2>Colonne 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis nisl vel commodo feugiat. Integer efficitur massa in ultrices lacinia. Sed euismod nisl vel orci lacinia, et condimentum nisl tincidunt. Proin non bibendum metus, vitae laoreet odio. Maecenas vitae justo auctor, iaculis odio eu, viverra quam. Sed vitae mi venenatis, tincidunt odio eu, aliquet orci.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-5 mt-3 pb-5 mb-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto custom-column">
+            <figure class="figure">
+            <img class="figure-img img-fluid rounded" src="https://gallica.bnf.fr/ark:/12148/btv1b5972922w/f1.highres"/>
+              <figcaption class="figure-caption">A caption for the above image.</figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

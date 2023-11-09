@@ -1,0 +1,35 @@
+{% extends "container.html"%}
+{% block corps %}
+<div>
+    <h2>Ajouter un justiciable</h2>
+    <p>Pour ajouter un nouveau justiciable, complétez le formulaire et cliquez sur "Ajouter".</p>
+</div>
+<form class="form" method="POST" action="{{url_for('add_justiciable')}}">
+
+    <div class="form-group row">
+      <label for="add_id_personne" class="col-sm-2 col-form-label"><b>Identifiant du justiciable</b></label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="add_id_personne" placeholder=""/>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="add_nom" class="col-sm-2 col-form-label"><b>Nom du justiciable</b></label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="add_nom" placeholder=""/>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="add_sexe" class="col-sm-2 col-form-label"><b>Sexe du justiciable</b></label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="add_sexe" placeholder=""/>
+      </div>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary text-center">Ajouter</button>
+    </div>
+
+</form>
+{% endblock %}

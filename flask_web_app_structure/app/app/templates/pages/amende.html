@@ -1,0 +1,63 @@
+{% extends "container.html" %}
+{% block corps %}
+
+<h1 class="display-2">Amende numéro {{amende.identifiant}}</h1>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Cote</th>
+            <td>{{amende.cote}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Période du délit</th>
+            <td>{{amende.date}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Type de taxe ou de recette pour le bailliage</th>
+            <td>{{amende.typeTaxe}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Montant perçu</th>
+            <td>{{amende.montant}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Equivalent en denier parisis (plus petite unité)</th>
+            <td>{{amende.parisis}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Moment du délit</th>
+            <td>{{amende.moment}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Type de délit</th>
+            <td>{{amende.typeDelit}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Délit ou crime commis en réunion</th>
+            <td>{{amende.reunion}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Amende perçue à l'issue d'une franche vérité</th>
+            <td>{{amende.franchesVerites}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Amende payée par un tiers</th>
+            <td>{{amende.tiers}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Transcription</th>
+            <td>{{amende.transcription}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Justiciable</th>
+            <td>
+                <ul class="list-group">
+                    <li class="list-group-item">Nom : {{amende.justiciable.nom}}</li>
+                    <li class="list-group-item">Sexe: {{amende.justiciable.sexe}}</li>
+                    <li class="list-group-item">Lien: <a class="btn btn-primary" href="{{url_for('justiciable', id_personne=amende.id_personne)}}">cliquez ici</a></li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

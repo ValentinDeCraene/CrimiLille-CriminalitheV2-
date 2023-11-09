@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mon site</title>
+        {% include "partials/css.html" %}
+    </head>
+    <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between text-light mycolor">
+    <ul class="nav nav-pills mr-auto">
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{url_for('accueil')}}">#</a>
+        </li>
+        <li class="nav-item dropdown text-white">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Index
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <a class="dropdown-item" href="{{url_for('index_amendes')}}">Index des amendes</a>
+                <a class="dropdown-item" href="{{url_for('index_justiciables')}}">Index des justiciables</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="{{url_for('recherche_avancee')}}">Recherche avancée</a>
+        </li>
+        <li class="nav-item dropdown text-white">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Télécharger à la BDD
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                <a class="dropdown-item" href="{{url_for('download_sql')}}">Script SQL</a>
+                <a class="dropdown-item" href="{{url_for('download_amendes_csv')}}">Table amendes au format csv</a>
+                <a class="dropdown-item" href="{{url_for('download_justiciables_csv')}}">Table justiciables au format csv</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white" href="#">A propos</a>
+        </li>
+    </ul>
+
+<div class="form-row align-items-center">
+ <form class="form-inline" action="{{url_for('recherche')}}" method="GET">
+          <input class="form-control bg-grey text-dark" name="keyword" type="search" placeholder="Recherche rapide" aria-label="Recherche">
+          <button class="btn btn-outline-light mt-2" type="submit">Rechercher</button>
+ </form>
+</div>
+
+</nav>
+
+
+      {% block afternav %}{%endblock%}
+       <div class="container">
+           {% block corps %}{% endblock %}
+       </div>
+    </body>
+
+
+  <footer class="bg-dark text-center text-white fixed-bottom">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+</footer>
+
+</html>

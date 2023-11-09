@@ -1,0 +1,28 @@
+{% extends "container.html" %}
+{% block corps %}
+
+<h1 class="display-2">Justiciable numéro {{justiciable.id_personne}}</h1>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Nom</th>
+            <td>{{justiciable.nom}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Sexe</th>
+            <td>{{justiciable.sexe}}</td>
+        </tr>
+        {% for i in justiciable.amendes %}
+        <tr>
+            <th scope="row">Transcription</th>
+            <td>{{i.transcription}}</td>
+        </tr>
+        <tr>
+            <th scope="row">Lien vers la fiche de l'amende</th>
+            <td><a class="btn btn-primary" href="{{url_for('amende', identifiant=i.identifiant)}}">cliquez ici</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

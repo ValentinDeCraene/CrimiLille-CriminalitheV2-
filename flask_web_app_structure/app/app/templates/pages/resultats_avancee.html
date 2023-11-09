@@ -1,0 +1,46 @@
+{% extends "container.html" %}
+
+{% block corps %}
+<style>
+
+    .list-group-item {
+        cursor: pointer;
+        transition: background-color 0.2s;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .list-group-item:hover {
+        background-color: #f8f9fa; /* Changer la couleur de fond au survol */
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .list-group-item a {
+        text-decoration: none;
+        color: inherit;
+        display: block; /* Faire en sorte que le lien prenne toute la largeur de la <li> */
+        padding: 10px 15px; /* Ajouter de l'espace autour du texte du lien */
+    }
+
+</style>
+
+<div class="container p-4 m-4">
+    <h2 class="text-center p-4"> Résultats de la recherche avancée:</h2>
+
+    {% if resultats %}
+        <ul class="list-group mb-5">
+            {% for amende in resultats %}
+                <li class="list-group-item m-2">
+                    <a href="{{ url_for('amende', identifiant=amende.identifiant) }}">
+                        <b>Identifiant de l'amende</b>: {{ amende.identifiant }}<br>
+                        <b>Type de l'amende</b>: {{ amende.typeDelit }}<br>
+                        <b>Montant de l'amende</b>: {{ amende.montant }}<br>
+                        <b>Transcription de l'amende</b>:<br/> {{ amende.transcription }}<br>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> Aucun résultat trouvé.</p>
+    {% endif %}
+</div>
+{% endblock %}

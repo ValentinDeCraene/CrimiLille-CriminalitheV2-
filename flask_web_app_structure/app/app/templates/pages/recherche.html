@@ -1,0 +1,71 @@
+{% extends "container.html" %}
+
+{% block corps %}
+<style>
+
+    .list-group-item {
+        cursor: pointer;
+        transition: background-color 0.2s;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .list-group-item:hover {
+        background-color: #f8f9fa; /* Changer la couleur de fond au survol */
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .list-group-item a {
+        text-decoration: none;
+        color: inherit;
+        display: block; /* Faire en sorte que le lien prenne toute la largeur de la <li> */
+        padding: 10px 15px; /* Ajouter de l'espace autour du texte du lien */
+    }
+
+</style>
+
+<div class="container p-4">
+    <h2 class="text-center"> Résultats de votre recherche: </h2>
+
+    {% if resultats %}
+        <ul class="list-group pb-5 pt-2 mb-5">
+            {% for amende in resultats.items %}
+                <li class="list-group-item m-2">
+                    <a href="{{url_for('amende', identifiant=amende.identifiant)}}">
+                        <b>Identifiant de l'amende</b> : {{amende.identifiant}} <br/>
+                        <b>Transcription </b> : {{amende.transcription}}<br/>
+                        <b>Montant de l'amende </b> : {{amende.montant}}<br/>
+                        <b>Type de l'amende </b> : {{amende.typeDelit}}<br/>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <nav aria-label="research-pagination p-3 m-3">
+            <ul class="pagination">
+                {%- for page in resultats.iter_pages() %}
+                    {% if page %}
+                        {% if page != resultats.page %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ url_for('recherche', keyword=keyword, page=page) }}">{{page}}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item active disabled">
+                                <a class="page-link">{{page}} <span class="sr-only">(actuelle)</span></a>
+                            </li>
+                        {% endif %}
+                    {% else %}
+                        <li class="page-item disabled">
+                            <a class="page-link">...</a>
+                        </li>
+                    {% endif %}
+                {%- endfor %}
+            </ul>
+        </nav>
+
+    {% else %}
+        <p> Il n'y a pas de résultats à votre requête.</p>
+        <p>Vous pouvez entrer une autre requête, ou naviguer dans la base de donnée en <a href="{{url_for('index')}}"> cliquant ici. </a></p>
+    {% endif %}
+
+</div>
+{% endblock %}

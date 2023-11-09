@@ -1,0 +1,77 @@
+{% extends "container.html" %}
+{% block corps %}
+<div class="container pt-2 pb-5 mb-5">
+    <h2 class="text-center pb-1 pt-3">Formulaire de recherche avancée</h2>
+    <div class="container d-flex justify-content-center text-left">
+        <form method="POST" action="{{ url_for('recherche_avancee') }}">
+            {{ form.hidden_tag() }}
+
+            <div class="row pt-5 pb-5">
+                <div class="col-md-6">
+                    <div class="form-group p-2">
+                        <label for="{{ form.cote.id }}" class="col-form-label">{{ form.cote.label }}</label>
+                        {{ form.cote(class="form-control form-control-sm", id=form.cote.id) }}
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label for="{{ form.date.id }}" class="col-form-label">{{ form.date.label }}</label>
+                        {{ form.date(class="form-control form-control-sm", id=form.date.id) }}
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label for="{{ form.sexe.id }}" class="col-form-label">{{ form.sexe.label }}</label>
+                        {{ form.sexe(class="form-control form-control-sm", id=form.sexe.id) }}
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label for="{{ form.montant.id }}" class="col-form-label">{{ form.montant.label }}</label>
+                        {{ form.montant(class="form-control form-control-sm", id=form.montant.id) }}
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label for="{{ form.parisis.id }}" class="col-form-label">{{ form.parisis.label }}</label>
+                        {{ form.parisis(class="form-control form-control-sm", id=form.parisis.id) }}
+                    </div>
+</div>
+
+                <div class="col-md-6">
+                    <div class="form-group p-2">
+                        <label for="{{ form.moment.id }}" class="col-form-label">{{ form.moment.label }}</label>
+                        {{ form.moment(class="form-control form-control-sm", id=form.moment.id) }}
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label for="{{ form.typeDelit.id }}" class="col-form-label">{{ form.typeDelit.label }}</label>
+                        {{ form.typeDelit(class="form-control form-control-sm", id=form.typeDelit.id) }}
+                    </div>
+                    <div class="form-group p-2">
+                        <label for="{{ form.reunion.id }}" class="col-form-label">{{ form.reunion.label }}</label>
+                        {{ form.reunion(class="form-control form-control-sm", id=form.reunion.id) }}
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label for="{{ form.franchesVerites.id }}" class="col-form-label">{{ form.franchesVerites.label }}</label>
+                        {{ form.franchesVerites(class="form-control form-control-sm", id=form.franchesVerites.id) }}
+                    </div>
+
+                    <div class="form-group p-2">
+                        <label for="{{ form.tiers.id }}" class="col-form-label">{{ form.tiers.label }}</label>
+                        {{ form.tiers(class="form-control form-control-sm", id=form.tiers.id) }}
+                    </div>
+                </div>
+            <div class="row text-center"> <!-- Créez une nouvelle rangée pour centrer le champ 'Transcription' -->
+                    <div class="form-group p-2 mx-auto col-md-8">
+                        <label for="{{ form.transcription.id }}" class="col-form-label">{{ form.transcription.label }}</label>
+                        {{ form.transcription(class="form-control form-control-sm", id=form.transcription.id) }}
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block mt-2">Rechercher</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
