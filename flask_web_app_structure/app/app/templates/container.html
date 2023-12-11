@@ -3,7 +3,44 @@
     <head>
         <title>Mon site</title>
         {% include "partials/css.html" %}
+  <style>
+    /* Styles for the button */
+    .popover-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      background-color: #daf6ff;
+    }
+
+    /* Styles for the popover */
+    .popover {
+      display: none;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      border-radius: 5px;
+      width: 200px;
+      text-align: center;
+    }
+  </style>
+        <script>
+    function togglePopover() {
+      var popover = document.getElementById("myPopover");
+      popover.style.display = (popover.style.display === "block") ? "none" : "block";
+    }
+
+    // Close the popover if the user clicks outside of it
+    window.onclick = function(event) {
+      var popover = document.getElementById("myPopover");
+      var popoverBtn = document.querySelector(".popover-btn");
+      if (!popoverBtn.contains(event.target) && !popover.contains(event.target)) {
+        popover.style.display = "none";
+      }
+    }
+  </script>
     </head>
+
     <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between text-light mycolor">
     <ul class="nav nav-pills mr-auto">

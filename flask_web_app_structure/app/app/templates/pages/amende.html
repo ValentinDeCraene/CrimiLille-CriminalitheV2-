@@ -1,7 +1,7 @@
 {% extends "container.html" %}
 {% block corps %}
 
-<h1 class="display-2">Amende numéro {{amende.identifiant}}</h1>
+<h1 class="display-2 p-4">Amende numéro {{amende.identifiant}}</h1>
 <table class="table">
     <tbody>
         <tr>
@@ -14,7 +14,12 @@
         </tr>
         <tr>
             <th scope="row">Type de taxe ou de recette pour le bailliage</th>
-            <td>{{amende.typeTaxe}}</td>
+            <td>{{amende.typeTaxe}}
+                <span class="popover-btn" onclick="togglePopover()">?</span>
+        <div class="popover" id="myPopover">
+          <p>Plus de détails sur le type de taxe ici.</p>
+        </div>
+            </td>
         </tr>
         <tr>
             <th scope="row">Montant perçu</th>

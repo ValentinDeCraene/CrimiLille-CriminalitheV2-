@@ -25,8 +25,8 @@
     <p>
         Il y {{amendes.total}} amendes enregistrées:
     </p>
-    <ul class="list-group pb-5 pt-2 mb-5">
-        {% for amende in amendes.items %}
+    <ul class="list-group pt-2 mb-5">
+        {% for amende in amendes.items|sort(attribute='identifiant') %}
             <li class="list-group-item m-2">
                 <a href="{{url_for('amende', identifiant=amende.identifiant)}}">
                     <b>Identifiant de l'amende</b> : {{amende.identifiant}} <br/>

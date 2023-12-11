@@ -163,15 +163,15 @@ def recherche_avancee():
 
 @app.route('/download_sql')
 def download_sql():
-    f = 'app/bdd_crimilille.sql'
+    f = './app/bdd_crimilille.sql'
     return send_file(f, attachment_filename='bdd_crimilille.sql', as_attachment=True)
 
 @app.route('/download_amendes_csv')
 def download_amendes_csv():
-    f = 'app/amendes.csv'
+    f = './app/amendes.csv'
     return send_file(f, attachment_filename='amendes.csv', as_attachment=True)
 
 @app.route('/download_justiciables_csv')
 def download_justiciables_csv():
-    f = 'app/justiciables.csv'
+    f = './app/justiciables.csv'
     return send_file(f, attachment_filename='justiciables.csv', as_attachment=True)

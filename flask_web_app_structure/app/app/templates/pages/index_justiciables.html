@@ -26,7 +26,7 @@
         Il y {{justiciables.total}} justiciables enregistrées:
     </p>
     <ul class="list-group pb-3">
-        {% for justiciable in justiciables.items %}
+        {% for justiciable in justiciables.items|sort(attribute='id_personne') %}
             <li class="list-group-item m-2">
                 <a href="{{url_for('justiciable', id_personne=justiciable.id_personne)}}">
                     <b>Identifiant du justiciable</b> : {{justiciable.id_personne}} <br/>

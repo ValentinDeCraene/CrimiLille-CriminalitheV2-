@@ -1,9 +1,16 @@
 {% extends "container.html" %}
 {% block corps %}
 <div class="container pt-2 pb-5 mb-5">
-    <h2 class="text-center pb-1 pt-3">Formulaire de recherche avancée</h2>
-    <div class="container d-flex justify-content-center text-left">
+    <h2 class="text-center pb-1 pt-3">Formulaire de recherche avancée: amendes</h2>
+    <div class="container d-flex justify-content-center text-left pt-3">
         <form method="POST" action="{{ url_for('recherche_avancee') }}">
+            <div>
+            <p class="lead text-center">
+                Explication du fonctionnement du formulaire de recherche avancée pour les amendes et instructions</p>
+            <p class="lead text-center">
+                Présentation des différents types de champs de recherche
+            </p>
+        </div>
             {{ form.hidden_tag() }}
 
             <div class="row pt-5 pb-5">
